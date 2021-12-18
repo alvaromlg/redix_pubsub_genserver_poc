@@ -36,3 +36,12 @@ If everything is setup correctly you should see that message on the iex shell:
 ```elixir
 iex(1)> Received message helloo from mychannel
 ```
+
+## Some real cases
+Imagine you want to subscribe to a redis channel and consume image filepaths and convert them to pdf
+
+We can pass the image filepath (it could also be a s3 url, etc)
+```
+127.0.0.1:6379> PUBLISH mychannel data/img.jpg
+```
+We handle it and a pdf should be generated on data/img.pdf using ExMagick
